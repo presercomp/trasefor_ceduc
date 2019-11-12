@@ -10,17 +10,17 @@ public class ConexionMySQL {
     // Nombre de la base de datos
     private static String database = "trasefor";
     // URL del servidor MySQL
-    private static String hostname = "127.0.0.1";
+    private static String hostname = "localhost";
     // Numero de puerto de conexion
     private static String port = "3306";
     // Usuario de la base de datos
     private static String username = "root";
     // Clave del usuario de la base de datos
-    private static String password = "123456789";
+    private static String password = "";
     // URL de conexion final
     private static String connectionURL;
     // Conector
-    private static Connection conn;
+    public static Connection conn;
     
     /**
      * Constructor de la clase ConexionMySQL
@@ -29,6 +29,7 @@ public class ConexionMySQL {
         this.connectionURL = "jdbc:mysql://";
         this.connectionURL += hostname + ":" + port + "/" + database;
         this.connectionURL += "?autoReconnect=true&useSSL=false";
+        this.getConnection();
     }
 
     /**
